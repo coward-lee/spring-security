@@ -37,7 +37,7 @@ public class DemoController {
     }
 
     @RequestMapping("/unauthed")
-    public String unauthed() {
+    public String unauthed(@AuthenticationPrincipal LoginUser loginUser) {
         return "unauthed";
     }
 }

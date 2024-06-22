@@ -1,2 +1,4 @@
 rootProject.name = 'spring-security'
+include 'github'
+include 'custom-github'
 

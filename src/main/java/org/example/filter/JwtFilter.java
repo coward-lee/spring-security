@@ -1,6 +1,7 @@
 package org.example.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.example.domain.LoginUser;
 import org.example.domain.User;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
+@Slf4j
 public class JwtFilter extends OncePerRequestFilter {
     public JwtFilter (){
         System.out.println("xxxxxxxxx");
@@ -27,6 +29,7 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
+        log.info("JwtFilterJwtFilterJwtFilterJwtFilter start");
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication =  context.getAuthentication();
         if (authentication != null && authentication.getPrincipal() instanceof LoginUser) {

@@ -51,7 +51,7 @@ public class Config {
                 .logout().disable()
                 .authorizeHttpRequests(req ->
                         req
-                                .antMatchers("/**/login**").permitAll()
+                                .antMatchers("/**/login**","/unauthed/").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
